@@ -14,6 +14,7 @@ const productSchema = new mongoose.Schema({
     description:{
         type:String,
         required:true,
+        default: ''
     },
     categories:{
         type:[
@@ -33,10 +34,10 @@ const productSchema = new mongoose.Schema({
         type:Date,
         default:Date.now
     },
-    updatedAt:{
-        type: Date,
-        default: DataTransfer.now
-    }
+   updatedAt: {
+    type: Date,
+    default: Date.now,
+}
 });
 
 const Products = mongoose.model('Products',productSchema);
