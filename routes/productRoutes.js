@@ -1,8 +1,9 @@
 const express =  require('express');
 const router = express.Router();
 const addProductController = require('../controllers/addProductsController');
+const deleteProductController = require('../controllers/deleteProductsController');
 
 router.post('/add',addProductController);
- //todo add controller
+router.delete('/delete',deleteProductController);
 
 module.exports = router;
