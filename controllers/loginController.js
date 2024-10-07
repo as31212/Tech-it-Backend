@@ -1,6 +1,7 @@
 const User = require("../models/userModel");
 const bcrypt = require("bcrypt");
-// todo use JWT for session handling
+const dotenv = require("dotenv").config();
+const jwt = require("jsonwebtoken");
 
 const loginController = async (req, res) => {
   try {
@@ -16,12 +17,26 @@ const loginController = async (req, res) => {
     if (!passIsMatch) {
       return res.status(400).json({ message: "invalid username or password" });
     }
-    res.status(200).json({ message: "login successful", userData: user });
+    const token = jwt.sign(
+      { userId: user._id, email: user.email },
+      process.env.JWT_KEY,
+      { expiresIn: "1h" }
+    );
+
+    res.status(200).json({
+      message: "login successful",
+      user: {
+        id: user._id,
+        email: user.email,
+        role: user.role,
+        wishlist: user.wishlist,
+        cart: user.cart,
+      },
+      token,
+    });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
 
 module.exports = loginController;
-
-

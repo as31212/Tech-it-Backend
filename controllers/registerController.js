@@ -1,5 +1,7 @@
 const User = require("../models/userModel");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const dotenv = require("dotenv").config();
 
 const registrationController = async (req, res) => {
   try {
@@ -21,13 +23,26 @@ const registrationController = async (req, res) => {
 
     await newUser.save();
 
+    const token = jwt.sign(
+      {
+        userId: newUser._id,
+        email: newUser.email,
+      },
+      process.env.JWT_KEY,
+      { expiresIn: "1h" }
+    );
+    // todo create middleware handling request with jwt by using jwt.verify();
+
     res.status(201).json({
       message: "user account created",
       user: {
         id: newUser._id,
         email: newUser.email,
         role: newUser.role,
+        wishlist: newUser.wishlist,
+        cart: newUser.cart
       },
+      token
     });
   } catch (error) {
     res.status(500).json({ error: error.message });
