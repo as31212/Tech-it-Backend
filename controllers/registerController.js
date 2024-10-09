@@ -31,7 +31,6 @@ const registrationController = async (req, res) => {
       process.env.JWT_KEY,
       { expiresIn: "1h" }
     );
-    // todo create middleware handling request with jwt by using jwt.verify();
 
     res.status(201).json({
       message: "user account created",
