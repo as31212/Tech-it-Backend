@@ -36,7 +36,7 @@
         "password": "required"
     }
     ```
-
+-
 ---
 
 ## Product Routes
