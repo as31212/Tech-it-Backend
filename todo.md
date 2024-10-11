@@ -1,15 +1,10 @@
 # To Do List for API Development
 
 ### 1. Test if JWT Middleware Works
-- Ensure that the JWT authentication middleware works properly before proceeding.
-- Test it by adding, deleting, and viewing user data that requires authentication.
-- Ensure that protected routes respond correctly to valid and invalid tokens.
+COMPLETE
 
 ### 2. Create Routes for User Cart Management
-- **Add to Cart Route (POST)**: Create a route that allows users to add items to their cart. This will include sending the product ID and quantity (if needed).
-  - URL: `/cart/add`
-  - Method: `POST`
-  - Protected Route: Yes (JWT required)
+- **Add to Cart Route (POST)**: COMPLETE
   
 - **Delete from Cart Route (DELETE)**: Create a route that allows users to remove items from their cart by product ID.
   - URL: `/cart/delete/:productId`
