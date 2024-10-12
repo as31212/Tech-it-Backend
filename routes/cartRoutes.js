@@ -6,6 +6,6 @@ const deleteCartController = require("../controllers/deleteCartController");
 const fetchCartController = require("../controllers/fetchCartController");
 
 router.post('/add/:id',jwtMiddleWare,addToCartController);
-router.delete('/delete/:id',jwtMiddleWare,deleteCartController) 
-router.get('/all/:id',jwtMiddleWare,fetchCartController) 
+router.delete('/delete/:id',jwtMiddleWare,deleteCartController); 
+router.get('/all/:id',jwtMiddleWare,fetchCartController); 
 module.exports = router;

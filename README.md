@@ -51,7 +51,7 @@
     {
         "name": "required",
         "price": "required",
-        "description": "optional",
+        "description": "required",
         "mainImage": "required",
         "images": ["optional"],
         "categories": ["optional"]
