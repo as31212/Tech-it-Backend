@@ -8,7 +8,7 @@ const authRoutes = require('./routes/authRoutes');
 const productRoutes = require("./routes/productRoutes");
 const wishlistRoutes = require("./routes/wishlistRoutes");
 const cartRoutes = require("./routes/cartRoutes");
-const insertMockData = require("./utils/generateMockData");
+const insertMockData = require("./utils/generateMockData"); // call this function when you need to populate the product database
 
 const dotenv = require("dotenv").config(); // this is importing and configuring the dotenv files
 const port = process.env.port || 4004; //extracts port variable from dot.env and if .env is not found then will call port 4004
