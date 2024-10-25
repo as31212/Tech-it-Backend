@@ -11,4 +11,3 @@ router.get('/fetch/:id',jwtMiddleWare,fetchWishlistController); //todo include j
 
 
 module.exports = router;
-  

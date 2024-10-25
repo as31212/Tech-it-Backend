@@ -12,3 +12,4 @@ router.delete('/delete/:id', jwtMiddleWare, adminMiddleware, deleteProductContro
 router.patch('/edit/:id', jwtMiddleWare, adminMiddleware, editProductController);
 
 module.exports = router;
+
