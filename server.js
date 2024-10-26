@@ -29,6 +29,6 @@ connectToMongo(); //connect to mongoDB imported from config file
  //generates 100 random products using faker library
 
 // this is the function that starts the server
-app.listen(port,()=>{
+app.listen(port,()=>{ 
     console.log(`listening on port ${port}`);
 })
