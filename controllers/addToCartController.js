@@ -12,7 +12,6 @@ const addToCartController = async (req,res)=>{
         const existingCartItem = user.cart.find(item => item.productId.toString() === productId);
         if (existingCartItem) {
             existingCartItem.quantity += quantity || 1; 
-            res.json({message:"product is already present in cart"});
         } else {
             user.cart.push({
                 productId,

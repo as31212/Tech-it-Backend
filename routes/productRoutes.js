@@ -15,5 +15,6 @@ router.patch('/edit/:id', jwtMiddleWare, adminMiddleware, editProductController)
 router.get('/all',fetchAllProductsController);
 router.get("/get/:id",fetchProductByIdController);
 
+
 module.exports = router;
 
