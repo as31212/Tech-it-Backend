@@ -10,14 +10,12 @@ const addToCartController = async (req,res)=>{
             return res.status(400).json({message:"User not found"})
         }
         const existingCartItem = user.cart.find(item => item.productId.toString() === productId);
-        if (existingCartItem) {
-            existingCartItem.quantity += quantity || 1; 
-        } else {
+        
             user.cart.push({
                 productId,
                 quantity: quantity || 1,
             });
-        }
+    //    removed condition for adding quantity to existing products
 
         await user.save();
         res.status(201).json({message:"Item added to cart successfully"})
