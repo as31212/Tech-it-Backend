@@ -13,7 +13,6 @@ const jwtMiddleware = (req, res, next) => {
     if (err) {
       return res.status(401).json({ message: 'Invalid token' });
     }
-    
     req.user = decoded; // Attach decoded payload to req
     next(); // Proceed to next middleware
   });
