@@ -10,7 +10,7 @@ const addToCartController = async (req, res) => {
       return res.status(404).json({ message: "User not found" });
     }
 
-    const productInCart = user.cart.find((el) => el.productId === productId);
+    const productInCart = user.cart.find((el) => el.productId.toString() === productId);
 
     if (productInCart) {
       productInCart.quantity += quantity || 1;
