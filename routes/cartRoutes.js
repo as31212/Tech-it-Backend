@@ -11,5 +11,5 @@ router.post('/add/:id',jwtMiddleWare,addToCartController);
 router.delete('/delete/:id',jwtMiddleWare,deleteCartController); 
 router.get('/all/:id',jwtMiddleWare,fetchCartController); 
 router.post('/localFetch',fetchLocalCartController);
-router.patch('/quantity:id',jwtMiddleWare,editItemQuantityController);
+router.patch('/quantity/:id',jwtMiddleWare,editItemQuantityController);
 module.exports = router;

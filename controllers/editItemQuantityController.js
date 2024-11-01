@@ -17,7 +17,7 @@ const editItemQuantityController = async (req, res) => {
     }
 
     // Find the item in the user's cart
-    const itemToEdit = user.cart.find((el) => el.productId === productId);
+    const itemToEdit = user.cart.find((el) => el.productId.toString() === productId);
     if (!itemToEdit) {
       return res.status(404).json({ message: "Product not found in cart" });
     }
