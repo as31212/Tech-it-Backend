@@ -16,7 +16,7 @@ const deleteCartController = async (req, res) => {
       return res.status(400).json({ message: "user not found" });
     }
     const itemToDeleteIndex = user.cart.findIndex(
-      (el) => el.productId === productId
+      (el) => el.productId.toString() === productId
     );
     if (itemToDeleteIndex === -1) {
       return res.status(400).json({ message: "item not found in cart" });

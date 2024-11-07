@@ -8,6 +8,7 @@ const authRoutes = require('./routes/authRoutes');
 const productRoutes = require("./routes/productRoutes");
 const wishlistRoutes = require("./routes/wishlistRoutes");
 const cartRoutes = require("./routes/cartRoutes");
+const categoryRoutes = require("./routes/categoryRoutes");
 const insertMockData = require("./utils/generateMockData"); // call this function when you need to populate the product database
 
 const dotenv = require("dotenv").config(); // this is importing and configuring the dotenv files
@@ -23,6 +24,7 @@ app.use('/auth',authRoutes);
 app.use('/products',productRoutes);
 app.use('/wishlist',wishlistRoutes);
 app.use('/cart',cartRoutes);
+app.use('/categories',categoryRoutes);
 
 connectToMongo(); //connect to mongoDB imported from config file 
 
