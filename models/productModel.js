@@ -17,9 +17,7 @@ const productSchema = new mongoose.Schema({
         default: ''
     },
     categories:{
-        type:[
-
-        ]
+        type:[String]
     },
     mainImage:{
         type:String,
@@ -39,7 +37,18 @@ const productSchema = new mongoose.Schema({
     default: Date.now,
 }
 });
-
 const Product = mongoose.model('Product',productSchema);
+
+// pagination function
+Product.fetchPaginatedAndFilteredProducts = async (page,limit,filter,sort)=>{
+    const skip = (page - 1 ) * limit; //this calculates the amount of documents to skip
+    const products = await Product.find(filter).sort(sort).skip(skip).limit(limit); //the query sent to mongoDB 
+
+    const totalProducts = await Product.countDocuments(filter); // used to later determine the amount of pages
+
+    return {products,totalProducts};
+}
+
+
 
 module.exports = Product;
