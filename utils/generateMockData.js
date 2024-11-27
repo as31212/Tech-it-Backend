@@ -7,7 +7,7 @@ const technology = [
   {
     name: "Camera",
     images: [
-      "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.cnet.com%2Ftech%2Fcomputing%2Fbest-camera-to-buy%2F&psig=AOvVaw3bmZtPauFOho7Wb4SOdxgJ&ust=1729914983367000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCMj359PRqIkDFQAAAAAdAAAAABAE",
+      "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6323/6323759_sd.jpg;maxHeight=640;maxWidth=550;format=webp",
       "https://ae01.alicdn.com/kf/S8ae6ca0d4c264c67901d3537ea15d1bdQ/ELP-210FPS-Global-Shutter-USB-Camera-720P-Varifocal-CS-Lens-800P-120FPS-OV9281-UVC-Monochrome-Zoom.jpg",
       "https://4.img-dpreview.com/files/p/TS560x560~forums/55233016/8d6466d37b3c47e8bc2eed9ab643b25f",
       "https://www.optics-pro.com/Produktbilder/zoom/80634_1/Guide-Thermal-imaging-camera-TD631-LRF.jpg",
@@ -29,7 +29,7 @@ const technology = [
   {
     name: "Laptop",
     images: [
-      "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.newegg.com%2Fp%2F2S3-000Y-00082&psig=AOvVaw2rJBHH1RixQyJ2Nw0vdD-6&ust=1729915664570000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCPjluaLUqIkDFQAAAAAdAAAAABAE",
+      "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/3992efbb-ed8b-430e-b3e4-bf7eb99a6865.jpg;maxHeight=200;maxWidth=200;format=webp",
       "https://c1.neweggimages.com/productimage/nb640/ACNFS2408100ZEKJI67.jpg",
       "https://external-preview.redd.it/RsOcS4DLgI0J22pGIIRtOboBd-bm4eyVYzmwoiYKRgA.jpg?width=640&crop=smart&auto=webp&s=f9a0a30a02838204ef3c31541cb64484e5d30fdd",
       "https://c1.neweggimages.com/productimage/nb640/A24G_1_20190406371254090.jpg",
@@ -63,7 +63,7 @@ const technology = [
     name: "Tablet",
     images: [
       "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6566/6566195_sd.jpg;maxHeight=640;maxWidth=550;format=webp",
-      "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6536/6536782_sd.jpg;maxHeight=640;maxWidth=550;format=webp",
+      "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6566/6566195_sd.jpg;maxHeight=141;maxWidth=300;format=webp",
       "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/4901/4901809_sd.jpg;maxHeight=640;maxWidth=550;format=webp",
       "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6572/6572187_rd.jpg;maxHeight=640;maxWidth=550;format=webp",
       "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6551/6551465_sd.jpg;maxHeight=640;maxWidth=550;format=webp",
@@ -116,15 +116,35 @@ const technology = [
   },
 ];
 
+const techCompanies = [
+  "Apple",
+  "Samsung",
+  "Dell",
+  "HP",
+  "Lenovo",
+  "Microsoft",
+  "Sony",
+  "Asus",
+  "Acer",
+  "Google",
+  "Canon",
+  "Nikon",
+  "Logitech",
+  "Razer",
+  "Intel"
+];
+
+
 const getRandomCategory = (num) => {
   return technology[num]["categories"][
     Math.floor(Math.random() * technology[num]["categories"].length)
   ];
 };
 
-const getRandomTechNames = (num) => {
+const getRandomTechNames = (num,num2) => {
   const keyword = technology[num]["name"];
-  return `${faker.company.name()} ${keyword}`;
+  const companyName = techCompanies[num2];
+  return `${companyName} ${keyword}`;
 };
 
 const getRandomTechImg = (num) => {
@@ -137,9 +157,10 @@ const generateProducts = (count) => {
   const products = [];
   for (let i = 0; i < count; i++) {
     const randomTechnology = Math.floor(Math.random() * technology.length); // Randomize for each product
+    const randomCompanyName = Math.floor(Math.random() * techCompanies.length); //Randomize company names
     const mainImage = getRandomTechImg(randomTechnology); // Get a main image for each product
     products.push({
-      name: getRandomTechNames(randomTechnology),
+      name: getRandomTechNames(randomTechnology,randomCompanyName),
       price: parseFloat(faker.commerce.price()),
       description: faker.lorem.sentence(),
       categories: [getRandomCategory(randomTechnology)],

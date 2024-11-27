@@ -28,7 +28,7 @@ app.use('/categories',categoryRoutes);
 
 connectToMongo(); //connect to mongoDB imported from config file 
 
- //generates 100 random products using faker library
+//generates 100 random products using faker library
 
 // this is the function that starts the server
 app.listen(port,()=>{ 
